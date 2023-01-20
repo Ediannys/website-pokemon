@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { PokemonComponent } from './modules/pokemon/pokemon.component';
-import { PokemonListComponent } from './modules/pokemon/pokemon-list/pokemon-list.component';
-import { PokemonDescriptionComponent } from './modules/pokemon/pokemon-description/pokemon-description.component';
+import { DefaultModule } from './layouts/default/default.module';
+import { Routes, RouterModule } from '@angular/router';
 
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import(`./layouts/default/default.module`).then(m => m.DefaultModule)
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PokemonComponent,
-    PokemonListComponent,
-    PokemonDescriptionComponent,
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DefaultModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
