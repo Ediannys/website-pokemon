@@ -5,6 +5,7 @@ import { PokemonListComponent } from 'src/app/modules/pokemon/pokemon-list/pokem
 import { PokemonDescriptionComponent } from 'src/app/modules/pokemon/pokemon-description/pokemon-description.component';
 import { DefaultComponent } from './default.component';
 import {Routes, RouterModule} from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
 const routes: Routes = [
   {
     path: "",
@@ -27,7 +28,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
 
   ]
 })
