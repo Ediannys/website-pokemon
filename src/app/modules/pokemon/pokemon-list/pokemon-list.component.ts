@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent {
-
+  @Input() childMessage: string = "";
+  message = 'Hola Mundo!';
 }

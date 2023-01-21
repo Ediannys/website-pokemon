@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-description',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./pokemon-description.component.scss']
 })
 export class PokemonDescriptionComponent {
-
+  @Input() childMessage: string = "";
+  message = 'Hola Mundo!';
 }
