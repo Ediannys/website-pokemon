@@ -1,0 +1,148 @@
+:host(app-pokemon-description) {
+
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: padding-box;
+    }
+
+    body {
+        font-family: arial;
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    h3 {
+        font-size: 2em;
+    }
+
+    h4 {
+        font-size: 1.5em;
+    }
+
+    h5 {
+        font-size: 1em;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    #principal {
+        width: 90%;
+        margin: 0px auto;
+        display: flex;
+        -webkit-display: flex;
+        -moz-display: flex;
+        -o-display: flex;
+        flex-flow: column;
+    }
+
+    header {
+        flex: 1;
+        height: 80px;
+        padding: 20px;
+        background: #e1e1e1;
+    }
+
+    #menuprincipal {
+        flex: 5;
+        background: black;
+        padding: 9px;
+    }
+
+    #menuprincipal>ul {
+        list-style: none;
+        display: flex;
+        flex-flow: row;
+    }
+
+    #menuprincipal>ul>li {
+        border-right: solid 2px #fff;
+    }
+
+    #menuprincipal>ul>li>a {
+        padding: 5px 20px 5px 20px;
+        color: #fff;
+        text-decoration: none;
+
+
+    }
+
+    section {
+        flex: 1;
+        display: flex;
+    }
+
+
+    section>aside {
+        flex: 1;
+        padding: 20px;
+        background-color: #e1e1e1;
+    }
+
+    section>aside:last-child {
+        line-height: 2em;
+        text-align: justify;
+    }
+
+    section>aside>ul>li {
+        line-height: 2em;
+    }
+
+    section>article {
+        flex: 3;
+        padding: 20px;
+        line-height: 2em;
+        text-align: justify;
+    }
+
+    section h4 {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 2px;
+        color: #FFF;
+        box-shadow: 1px 1px 1px #CCC;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    }
+
+    footer {
+        flex: 1;
+        background: black;
+        height: 39px;
+        padding: 9px;
+        text-align: center;
+        color: #fff;
+    }
+
+    footer>a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .verde {
+        background: transparent linear-gradient(to right, #61AA01 0%, #61AA01 100%) repeat scroll 0% 0%;
+    }
+
+
+    /*celular*/
+    @media only screen and (max-width : 360px) {}
+
+    /*tablet*/
+    @media only screen and (max-width : 768px) {}
+
+
+
+
+}

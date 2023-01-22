@@ -7,6 +7,7 @@ import { DefaultComponent } from './default.component';
 import {Routes, RouterModule} from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {
     path: "",
@@ -30,7 +31,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
   ]
 })
 export class DefaultModule { }
