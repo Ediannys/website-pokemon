@@ -1,6 +1,12 @@
 :host(app-pokemon) {
     .container-pokemon {
-        display: flex;
-        justify-content: baseline;
+        height: 100%;
+        .example-container {
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+        }
+        .example-sidenav {
+            padding: 20px;
+        }
     }
 }

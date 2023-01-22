@@ -1,2 +1,7 @@
 <p>pokemon-description works!</p>
 <p> Message: {{ message }}</p>
+<p>Auto-resizing sidenav</p>
+<p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+<button (click)="showFiller = !showFiller" mat-raised-button>
+    Toggle extra text
+</button>

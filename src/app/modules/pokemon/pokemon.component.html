@@ -1,4 +1,8 @@
 <div class="container-pokemon">
-    <app-pokemon-list [childMessage]="parentMessage"></app-pokemon-list>
-    <app-pokemon-description [childMessage]="parentMessage"></app-pokemon-description>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer [opened]="!flagDrawer" class="example-sidenav" mode="side">
+      <app-pokemon-description [childMessage]="parentMessage"></app-pokemon-description>
+    </mat-drawer>
+    <app-pokemon-list (messageEvent)="receiveMessage($event)" [childMessage]="parentMessage"></app-pokemon-list>
+  </mat-drawer-container>
 </div>

@@ -3,15 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DefaultModule } from './layouts/default/default.module';
 import { Routes, RouterModule } from '@angular/router';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const routes: Routes = [
   {
     path: '',
     loadChildren: () => import(`./layouts/default/default.module`).then(m => m.DefaultModule)
   }
 ]
-
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +17,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     DefaultModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

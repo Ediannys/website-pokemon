@@ -6,6 +6,7 @@ import { PokemonDescriptionComponent } from 'src/app/modules/pokemon/pokemon-des
 import { DefaultComponent } from './default.component';
 import {Routes, RouterModule} from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
 const routes: Routes = [
   {
     path: "",
@@ -18,7 +19,6 @@ const routes: Routes = [
     ]
   }
 ]
-
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -29,8 +29,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
-
+    SharedModule,
+    MatSidenavModule
   ]
 })
 export class DefaultModule { }
