@@ -1,37 +1,32 @@
-<div id="principal">
+<div id="container-pokemon-description">
     <section>
-        <article>
-            <h4 class="verde">{{pokemon.name | uppercase}}</h4>
-            <section><img src="{{pokemon.image}}" alt=""></section>
-            <section>
-                <div>
-                    <img *ngFor="let element of pokemon.forms" src="{{element}}" alt="">
-                </div>
-            </section>
-        </article>
-
-        <aside>
-            <h4 class="verde">DESCRIPCIÓN</h4>
-            <section>
-                <p>Experiencia base obtenida al derrotar a este Pokémon.</p>
-                <p>{{pokemon.baseExperience}}</p>
-            </section>
-            <section>
-                <p>Atura</p>
-                <p>{{pokemon.height}}</p>
-            </section>
-            <section>
-                <p>Habilidades</p>
-                <div>
-                    <ul>
-                        <li *ngFor="let element of pokemon.abilities"> {{element}}</li>
-                    </ul>
-                </div>
-            </section>
-            <section>
-                <p>Juegos Relevantes</p>
-            </section>
-        </aside>
+       <article class="form-pokemon">
+          <h4 class="color-title">{{pokemon.name | uppercase}}</h4>
+          <section class="section-image"><img src="{{pokemon.image}}" alt=""></section>
+          <section>
+             <div>
+                <img *ngFor="let element of pokemon.forms" src="{{element}}" alt="">
+             </div>
+          </section>
+       </article>
+       <aside class="description">
+          <h4 class="color-title">CONTENT</h4>
+          <section>
+             <p class="subtitle">Base experience gained for defeating:</p>
+             <p>{{pokemon.baseExperience}}</p>
+          </section>
+          <section>
+             <p class="subtitle">Height</p>
+             <p>{{pokemon.height}}</p>
+          </section>
+          <section>
+             <p class="subtitle">Abilities</p>
+             <div>
+                <ul>
+                   <li *ngFor="let element of pokemon.abilities"> {{element | titlecase}}</li>
+                </ul>
+             </div>
+          </section>
+       </aside>
     </section>
-    <footer>Copyright <a href="http://www.website.com">website.com</a></footer>
-</div>
+ </div>

@@ -11,7 +11,7 @@ export class PokemonComponent {
   @ViewChild(PokemonDescriptionComponent) pokemonDescription;
   @ViewChild(PokemonListComponent) pokemonList;
   @ViewChild('drawer') drawer: ElementRef<HTMLInputElement> = {} as ElementRef
-  flagDrawer: Boolean = true;
+  flagDrawer: Boolean = false;
   parentMessage = "message from parent"
   message: string = "";
   ngAfterViewInit() {
