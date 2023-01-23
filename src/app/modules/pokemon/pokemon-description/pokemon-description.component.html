@@ -1,4 +1,5 @@
-<div id="container-pokemon-description">
+
+<div *ngIf="flagShowPokemon" id="container-pokemon-description">
     <section>
        <article class="form-pokemon">
           <h4 class="color-title">{{pokemon.name | uppercase}}</h4>
@@ -30,3 +31,4 @@
        </aside>
     </section>
  </div>
+ 

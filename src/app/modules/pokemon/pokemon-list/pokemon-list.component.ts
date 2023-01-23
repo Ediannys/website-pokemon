@@ -13,7 +13,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class PokemonListComponent {
   @Input() childMessage: string = "";
-  @Output() messageEvent = new EventEmitter<Boolean>();
+  @Output() messageEvent = new EventEmitter<PokemonNameModel>();
   message = 'Hola Mundo!';
 
   displayedColumns: string[] = ['name'];
@@ -24,11 +24,6 @@ export class PokemonListComponent {
   selection = new SelectionModel<PokemonNameModel>(false, []);
 
   constructor(private pokemonListService: PokemonListService) {
-    // Create 100 users
-
-
-    // Assign the data to the data source for the table to render
-
     this.getAllPokemon()
   }
 
@@ -56,9 +51,8 @@ export class PokemonListComponent {
     }
   }
 
-  public drawerToggle(selected): void {
-    console.log(this.selection.selected[0])
-    this.messageEvent.emit(true)
+  public drawerToggle(): void {
+    this.messageEvent.emit(this.selection.selected[0])
   }
 }
 
