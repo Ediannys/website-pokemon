@@ -23,7 +23,7 @@ export class PokemonDescriptionComponent implements OnInit {
   public getPokemonDetail() {
     this.pokemonDescriptionService.getPokemonDetail('charizard').subscribe( (response: PokemonModel) => { 
       this.pokemon = PokemonDescriptionModel.getPokemon(response);
-      console.log(response)}, error => {
+    }, error => {
       console.log(error)
     })
   }
