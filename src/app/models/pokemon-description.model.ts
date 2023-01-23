@@ -1,170 +1,200 @@
-export interface PokemonDescriptionModel {
-    abilities:              Ability[];
-    baseExperience:         number;
-    forms:                  Species[];
-    gameIndices:            GameIndex[];
-    height:                 number;
-    heldItems:              any[];
-    id:                     number;
-    isDefault:              boolean;
+export class PokemonDescriptionModel {
+    static getPokemon(obj: PokemonModel): PokemonDescriptionModel {
+        const data = new PokemonDescriptionModel(
+            obj.id,
+            obj.name,
+            obj.sprites.other?.home.frontDefault,
+            obj.baseExperience,
+            obj.height,
+            obj.abilities.map(x => {
+                return x.ability.name
+            }),
+            PokemonDescriptionModel.getForms(obj.sprites)
+        );
+        return data;
+    }
+    constructor(
+        public id: number,
+        public name: string,
+        public image: string,
+        public baseExperience: number,
+        public height: number,
+        public abilities: string[],
+        public forms: string[]
+    ) { }
+    static getForms(sprites: Sprites): string[] {
+        let form = new Array<string>();
+        if (sprites.backDefault) {
+            form.push(sprites.backDefault);
+        }
+        if (sprites.backFemale) {
+            form.push(sprites.backFemale);
+        }
+        if (sprites.backShiny) {
+            form.push(sprites.backShiny);
+        }
+        if (sprites.backShinyFemale) {
+            form.push(sprites.backShinyFemale);
+        }
+
+        if (sprites.frontDefault) {
+            form.push(sprites.frontDefault);
+        }
+        if (sprites.frontFemale) {
+            form.push(sprites.frontFemale);
+        }
+        if (sprites.frontShiny) {
+            form.push(sprites.frontShiny);
+        }
+        if (sprites.frontShinyFemale) {
+            form.push(sprites.frontShinyFemale);
+        }
+        return form;
+    }
+}
+export interface PokemonModel {
+    abilities: Ability[];
+    baseExperience: number;
+    forms: Species[];
+    gameIndices: GameIndex[];
+    height: number;
+    heldItems: any[];
+    id: number;
+    isDefault: boolean;
     locationAreaEncounters: string;
-    moves:                  Move[];
-    name:                   string;
-    order:                  number;
-    pastTypes:              any[];
-    species:                Species;
-    sprites:                Sprites;
-    stats:                  Stat[];
-    types:                  Type[];
-    
-    weight:                 number;
+    moves: Move[];
+    name: string;
+    order: number;
+    pastTypes: any[];
+    species: Species;
+    sprites: Sprites;
+    stats: Stat[];
+    types: Type[];
+    weight: number;
 }
-
 export interface Ability {
-    ability:  Species;
+    ability: Species;
     isHidden: boolean;
-    slot:     number;
+    slot: number;
 }
-
 export interface Species {
     name: string;
-    url:  string;
+    url: string;
 }
-
 export interface GameIndex {
     gameIndex: number;
-    version:   Species;
+    version: Species;
 }
-
 export interface Move {
-    move:                Species;
+    move: Species;
     versionGroupDetails: VersionGroupDetail[];
 }
-
 export interface VersionGroupDetail {
-    levelLearnedAt:  number;
+    levelLearnedAt: number;
     moveLearnMethod: Species;
-    versionGroup:    Species;
+    versionGroup: Species;
 }
-
 export interface GenerationV {
     blackWhite: Sprites;
 }
-
 export interface GenerationIv {
-    diamondPearl:        Sprites;
+    diamondPearl: Sprites;
     heartgoldSoulsilver: Sprites;
-    platinum:            Sprites;
+    platinum: Sprites;
 }
-
 export interface Versions {
-    generationI:    GenerationI;
-    generationIi:   GenerationIi;
-    generationIii:  GenerationIii;
-    generationIv:   GenerationIv;
-    generationV:    GenerationV;
-    generationVi:   { [key: string]: Home };
-    generationVii:  GenerationVii;
+    generationI: GenerationI;
+    generationIi: GenerationIi;
+    generationIii: GenerationIii;
+    generationIv: GenerationIv;
+    generationV: GenerationV;
+    generationVi: { [key: string]: Home };
+    generationVii: GenerationVii;
     generationViii: GenerationViii;
 }
-
 export interface Sprites {
-    backDefault:      string;
-    backFemale:       null;
-    backShiny:        string;
-    backShinyFemale:  null;
-    frontDefault:     string;
-    frontFemale:      null;
-    frontShiny:       string;
+    backDefault: string;
+    backFemale: null;
+    backShiny: string;
+    backShinyFemale: null;
+    frontDefault: string;
+    frontFemale: null;
+    frontShiny: string;
     frontShinyFemale: null;
-    other?:           Other;
-    versions?:        Versions;
-    animated?:        Sprites;
+    other: Other;
+    versions?: Versions;
+    animated?: Sprites;
 }
-
 export interface GenerationI {
     redBlue: RedBlue;
-    yellow:  RedBlue;
+    yellow: RedBlue;
 }
-
 export interface RedBlue {
-    backDefault:      string;
-    backGray:         string;
-    backTransparent:  string;
-    frontDefault:     string;
-    frontGray:        string;
+    backDefault: string;
+    backGray: string;
+    backTransparent: string;
+    frontDefault: string;
+    frontGray: string;
     frontTransparent: string;
 }
-
 export interface GenerationIi {
     crystal: Crystal;
-    gold:    Gold;
-    silver:  Gold;
+    gold: Gold;
+    silver: Gold;
 }
-
 export interface Crystal {
-    backDefault:           string;
-    backShiny:             string;
-    backShinyTransparent:  string;
-    backTransparent:       string;
-    frontDefault:          string;
-    frontShiny:            string;
+    backDefault: string;
+    backShiny: string;
+    backShinyTransparent: string;
+    backTransparent: string;
+    frontDefault: string;
+    frontShiny: string;
     frontShinyTransparent: string;
-    frontTransparent:      string;
+    frontTransparent: string;
 }
-
 export interface Gold {
-    backDefault:       string;
-    backShiny:         string;
-    frontDefault:      string;
-    frontShiny:        string;
+    backDefault: string;
+    backShiny: string;
+    frontDefault: string;
+    frontShiny: string;
     frontTransparent?: string;
 }
-
 export interface GenerationIii {
-    emerald:          OfficialArtwork;
+    emerald: OfficialArtwork;
     fireredLeafgreen: Gold;
-    rubySapphire:     Gold;
+    rubySapphire: Gold;
 }
-
 export interface OfficialArtwork {
     frontDefault: string;
-    frontShiny:   string;
+    frontShiny: string;
 }
-
 export interface Home {
-    frontDefault:     string;
-    frontFemale:      null;
-    frontShiny:       string;
+    frontDefault: string;
+    frontFemale: null;
+    frontShiny: string;
     frontShinyFemale: null;
 }
-
 export interface GenerationVii {
-    icons:             DreamWorld;
+    icons: DreamWorld;
     ultraSunUltraMoon: Home;
 }
-
 export interface DreamWorld {
     frontDefault: string;
-    frontFemale:  null;
+    frontFemale: null;
 }
-
 export interface GenerationViii {
     icons: DreamWorld;
 }
-
 export interface Other {
-    dreamWorld:      DreamWorld;
-    home:            Home;
+    dreamWorld: DreamWorld;
+    home: Home;
     officialArtwork: OfficialArtwork;
 }
-
 export interface Stat {
     baseStat: number;
-    effort:   number;
-    stat:     Species;
+    effort: number;
+    stat: Species;
 }
-
 export interface Type {
     slot: number;
     type: Species;

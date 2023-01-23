@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PokemonDescriptionModel } from 'src/app/models/pokemon-description.model';
-import { PokemonDescriptionService } from 'src/app/services/pokemon-description.service';
+import { PokemonDescriptionModel, PokemonModel } from 'src/app/models/pokemon-description.model';
+import { PokemonDescriptionService} from 'src/app/services/pokemon-description.service';
 
 @Component({
   selector: 'app-pokemon-description',
@@ -11,6 +11,7 @@ export class PokemonDescriptionComponent implements OnInit {
   @Input() childMessage: string = "";
   message = 'Hola Mundo!';
   showFiller = false;
+  pokemon: PokemonDescriptionModel;
 
   constructor(private pokemonDescriptionService: PokemonDescriptionService) { }
 
@@ -20,7 +21,9 @@ export class PokemonDescriptionComponent implements OnInit {
 
 
   public getPokemonDetail() {
-    this.pokemonDescriptionService.getPokemonDetail('charizard').subscribe(response => { console.log(response)}, error => {
+    this.pokemonDescriptionService.getPokemonDetail('charizard').subscribe( (response: PokemonModel) => { 
+      this.pokemon = PokemonDescriptionModel.getPokemon(response);
+      console.log(response)}, error => {
       console.log(error)
     })
   }

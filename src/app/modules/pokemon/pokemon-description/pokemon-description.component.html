@@ -1,60 +1,36 @@
 <div id="principal">
-    <header>
-        <h1>Site Name</h1>
-    </header>
-    <nav>
-        <div id="menuprincipal">
-            <ul>
-                <li><a href="index.html" target="_self">Home</a></li>
-                <li><a href="about.html" target="_self">About</a></li>
-                <li><a href="services.html" target="_self">Services</a></li>
-                <li><a href="contactus.html" target="_self">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <section>
-        <aside>
-            <ul>
-                <li><a href="sectionpage1.html" target="_self">Section Page 1</a></li>
-                <li><a href="sectionpage2.html" target="_self">Section Page 2</a></li>
-                <li><a href="sectionpage3.html" target="_self">Section Page 3</a></li>
-                <li><a href="sectionpage4.html" target="_self">Section Page 4</a></li>
-            </ul>
-        </aside>
-
         <article>
-            <h4 class="verde">Bienvenidos a nuestros web site responsive</h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-                quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-                imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-                porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
-                feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
-
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/gJtYRxH5G2k" frameborder="0"
-                allowfullscreen></iframe>
-
-            <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
-                nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-                libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,
-                hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero
-                venenatis faucibus.</p>
-
-            <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris
-                sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit
-                cursus nunc.
-            </p>
+            <h4 class="verde">{{pokemon.name | uppercase}}</h4>
+            <section><img src="{{pokemon.image}}" alt=""></section>
+            <section>
+                <div>
+                    <img *ngFor="let element of pokemon.forms" src="{{element}}" alt="">
+                </div>
+            </section>
         </article>
 
         <aside>
-            <h4 class="verde">Aside heading</h4>
-            <p>Con esta herramienta puede generar fácilmente textos simulados para trabajos de maquetación. </p>
-            <p>Lo complementaremos progresivamente con nuevas funcionalidades.</p>
-            <p>Sus comentarios y sugerencias son siempre bienvenidos.Desde aquí le animamos a enviarnos nuevos
-                textos simulados.</p>
+            <h4 class="verde">DESCRIPCIÓN</h4>
+            <section>
+                <p>Experiencia base obtenida al derrotar a este Pokémon.</p>
+                <p>{{pokemon.baseExperience}}</p>
+            </section>
+            <section>
+                <p>Atura</p>
+                <p>{{pokemon.height}}</p>
+            </section>
+            <section>
+                <p>Habilidades</p>
+                <div>
+                    <ul>
+                        <li *ngFor="let element of pokemon.abilities"> {{element}}</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <p>Juegos Relevantes</p>
+            </section>
         </aside>
     </section>
     <footer>Copyright <a href="http://www.website.com">website.com</a></footer>
