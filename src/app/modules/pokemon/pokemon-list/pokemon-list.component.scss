@@ -1,6 +1,19 @@
-.example-sidenav-content {
-    display: flex;
+.sidenav-content-pokemon-list {
+    
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    
+
+
+    table {
+        width: 100%;
+      }
+      
+      .mat-mdc-form-field {
+        font-size: 14px;
+        width: 100%;
+      }
+      
+      td, th {
+        width: 25%;
+      }
 }
