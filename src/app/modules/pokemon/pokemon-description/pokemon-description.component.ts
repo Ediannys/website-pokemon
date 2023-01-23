@@ -1,29 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PokemonDescriptionModel, PokemonModel } from 'src/app/models/pokemon-description.model';
 import { PokemonDescriptionService } from 'src/app/services/pokemon-description.service';
-
 @Component({
   selector: 'app-pokemon-description',
   templateUrl: './pokemon-description.component.html',
   styleUrls: ['./pokemon-description.component.scss']
 })
-export class PokemonDescriptionComponent implements OnInit {
+export class PokemonDescriptionComponent {
   @Input() childMessage: string = "";
-  message = 'Hola Mundo!';
-  showFiller = false;
   pokemon: PokemonDescriptionModel;
   flagShowPokemon = false;
 
   constructor(private pokemonDescriptionService: PokemonDescriptionService) { }
 
-  ngOnInit() { }
-
   ngOnChanges() {
-    if(this.childMessage){
+    if (this.childMessage) {
       this.getPokemonDetail();
     }
   }
-
   public getPokemonDetail() {
     this.flagShowPokemon = false;
     this.pokemonDescriptionService.getPokemonDetail(this.childMessage).subscribe((response: PokemonModel) => {

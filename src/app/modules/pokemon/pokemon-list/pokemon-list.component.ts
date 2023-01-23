@@ -14,14 +14,12 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class PokemonListComponent {
   @Input() childMessage: string = "";
   @Output() messageEvent = new EventEmitter<PokemonNameModel>();
-  message = 'Hola Mundo!';
-
-  displayedColumns: string[] = ['name'];
-  dataSource: MatTableDataSource<PokemonNameModel>;
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  selection = new SelectionModel<PokemonNameModel>(false, []);
+
+  public displayedColumns: string[] = ['name'];
+  public dataSource: MatTableDataSource<PokemonNameModel>;
+  public selection = new SelectionModel<PokemonNameModel>(false, []);
 
   constructor(private pokemonListService: PokemonListService) {
     this.getAllPokemon()
@@ -31,7 +29,6 @@ export class PokemonListComponent {
     this.pokemonListService.getAllPokemon().subscribe(response => {
       let pokemonName = PokemonListModel.getPokemonNames(response)
       this.dataSource = new MatTableDataSource(pokemonName);
-      console.log(response)
     }, error => {
       console.log(error)
     })
@@ -45,7 +42,6 @@ export class PokemonListComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

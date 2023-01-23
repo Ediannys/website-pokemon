@@ -1,16 +1,17 @@
 .sidenav-content-pokemon-list {
-    height: 100%;
-    table {
-        width: 100%;
-      }
-      .mat-mdc-form-field {
-        font-size: 14px;
-        width: 100%;
-      }
-      td, th {
-        width: 25%;
-      }
-      .cursor-pointer{
-        cursor: pointer;
-      }
+  height: 100%;
+  table {
+    width: 100%;
+  }
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  td,
+  th {
+    width: 25%;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
 }
