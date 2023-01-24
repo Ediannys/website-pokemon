@@ -4,7 +4,8 @@ export class PokemonListModel {
         let data = new Array<PokemonNameModel>();
         data = obj.results.map(x => {
             return {
-                name: x.name
+                name: x.name,
+                selected: false
             }
         });
         return data;
@@ -24,4 +25,5 @@ export interface Result {
 
 export interface PokemonNameModel {
     name: string;
+    selected: Boolean
 }

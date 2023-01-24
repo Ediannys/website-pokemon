@@ -8,28 +8,24 @@
                 <table mat-table [dataSource]="dataSource" matSort>
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Pokemon</th>
-                        <td mat-cell *matCellDef="let row">{{row.name | uppercase}}</td>
+                        <td [ngClass]="{'row-color-selected': row.selected}" mat-cell *matCellDef="let row">{{row.name |
+                            uppercase}}</td>
                     </ng-container>
-
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;" [ngClass]="{'row-color': i % 2 == 0 }" class="cursor-pointer"
-                        (click)="selection.toggle(row);drawerToggle()" ></tr>
+                    <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;"
+                        [ngClass]="{'row-color': i % 2 == 0 }" class="cursor-pointer"
+                        (click)="selection.toggle(row);drawerToggle()"></tr>
 
                     <tr class="mat-row" *matNoDataRow>
                         <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
                     </tr>
                 </table>
             </div>
-            <mat-paginator
-    (page)="handlePageEvent($event)"
-    [length]="length"
-    [pageSize]="pageSize"
-    [showFirstLastButtons]="showFirstLastButtons"
-    [pageSizeOptions]="pageSizeOptions"
-    [pageIndex]="pageIndex"
-    aria-label="Select page for pokemon">
-</mat-paginator>
-           
+            <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+                [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions"
+                [pageIndex]="pageIndex" aria-label="Select page for pokemon">
+            </mat-paginator>
+
         </div>
     </div>
 </div>

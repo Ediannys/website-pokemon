@@ -46,7 +46,7 @@ export class PokemonListComponent {
       console.log(error)
     })
   }
-  
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
@@ -63,7 +63,10 @@ export class PokemonListComponent {
   }
 
   public drawerToggle(): void {
-    this.messageEvent.emit(this.selection.selected[0])
+    this.dataSource.filteredData.filter(element => element.selected = false);
+    let selectedRow = this.selection.selected[0];
+    selectedRow.selected = true;
+    this.messageEvent.emit(selectedRow)
   }
 
   handlePageEvent(event: PageEvent) {

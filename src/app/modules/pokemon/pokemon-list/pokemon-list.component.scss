@@ -6,9 +6,10 @@
   margin: 0px auto;
   font-size: 2em;
 
-  .pokemon-table{
+  .pokemon-table {
     display: flex;
     flex-direction: column;
+    overflow: auto;
 
     table {
       width: 100%;
@@ -17,10 +18,11 @@
 
   .row-color {
     background: #e1e1e1;
-}
+  }
 
-
-
+  .row-color-selected, .cursor-pointer:hover {
+    background: transparent linear-gradient(to right, #61aa01 0%, #61aa01 100%) repeat scroll 0% 0%;
+  }
 
   .mat-mdc-form-field {
     font-size: 14px;
@@ -29,19 +31,11 @@
     margin: 0px auto;
   }
 
-
   td,
   th {
     width: 25%;
   }
   .cursor-pointer {
-    cursor: pointer;   
-  }
-
-  .cursor-pointer:hover{
-   
-    background: transparent linear-gradient(to right, #61aa01 0%, #61aa01 100%) repeat scroll 0% 0%;
+    cursor: pointer;
   }
 }
-
-
