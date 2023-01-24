@@ -3,7 +3,7 @@
     <section>
        <article class="form-pokemon">
           <h4 class="color-title">{{pokemon.name | uppercase}}</h4>
-          <section class="section-image"><img src="{{pokemon.image}}" alt=""></section>
+          <section><img src="{{pokemon.image}}" alt=""></section>
           <section>
              <div>
                 <img *ngFor="let element of pokemon.forms" src="{{element}}" alt="">

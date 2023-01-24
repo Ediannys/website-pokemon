@@ -1,34 +1,19 @@
 :host(app-pokemon-description) {
-    h4 {
-      font-size: 1.5em;
-    }
-    ul {
-      list-style: none;
-    }
-    p {
-      margin-bottom: 10px;
-    }
-    #container-pokemon-description {
-      display: flex;
-      justify-content: center;
-      -webkit-display: flex;
-      -moz-display: flex;
-      -o-display: flex;
-      flex-flow: column;
-      height: 100%;
-    }
-    section {
-      flex: 1;
-      display: flex;
-    }
+
+  #container-pokemon-description {
+    display: flex;
+    justify-content: center;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -o-display: flex;
+    flex-flow: column;
+
     .form-pokemon {
-      .section-image {
-        margin-top: 6em;
-      }
       section {
         justify-content: center;
       }
     }
+
     .description {
       .subtitle {
         font-weight: bold;
@@ -38,10 +23,24 @@
         padding: 2em 0em 2em;
         border-bottom: 2px dashed green;
       }
-      p,
-      li {
+      p,li {
         font-size: 1.22em;
       }
+    }
+  }
+
+    h4 {
+      font-size: 1.5em;
+    }
+    ul {
+      list-style: none;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    section {
+      flex: 1;
+      display: flex;
     }
     section > aside {
       flex: 1;
@@ -65,14 +64,6 @@
     .color-title {
       background: transparent linear-gradient(to right, #61aa01 0%, #61aa01 100%)
         repeat scroll 0% 0%;
-    }
-  
-    /*celular*/
-    @media only screen and (max-width: 360px) {
-    }
-  
-    /*tablet*/
-    @media only screen and (max-width: 768px) {
     }
   }
   

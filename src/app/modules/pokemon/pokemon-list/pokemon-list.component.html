@@ -1,6 +1,6 @@
-<div class="sidenav-content-pokemon-list">
+<div *ngIf="flagPokemonList" class="sidenav-content-pokemon-list">
     <mat-form-field>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search:" #input />
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search Pokemon:" #input />
     </mat-form-field>
     <div class="mat-elevation-z8">
         <div class="pokemon-table">
@@ -20,8 +20,16 @@
                     </tr>
                 </table>
             </div>
-            <mat-paginator class="width-list" [pageSizeOptions]="[5, 10, 25, 100]"
-                aria-label="Select page of users"></mat-paginator>
+            <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex"
+    aria-label="Select page for pokemon">
+</mat-paginator>
+           
         </div>
     </div>
 </div>

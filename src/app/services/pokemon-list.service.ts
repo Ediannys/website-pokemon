@@ -14,7 +14,7 @@ export class PokemonListService {
   constructor(private http: HttpClient) {
   
    }
-  public getAllPokemon(): Observable<PokemonListModel> {
-    return this.http.get<PokemonListModel>(this.apiUrl + '/pokemon', {});
+  public getAllPokemon(ofset: number): Observable<PokemonListModel> {
+    return this.http.get<PokemonListModel>(this.apiUrl + '/pokemon?offset=' + ofset +'limit=20', {});
   }
 }
