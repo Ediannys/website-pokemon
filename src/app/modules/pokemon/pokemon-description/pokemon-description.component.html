@@ -1,34 +1,32 @@
-
 <div *ngIf="flagShowPokemon" id="container-pokemon-description">
-    <section>
-       <article class="form-pokemon">
-          <h4 class="color-title">{{pokemon.name | uppercase}}</h4>
-          <section><img src="{{pokemon.image}}" alt=""></section>
-          <section>
-             <div>
-                <img *ngFor="let element of pokemon.forms" src="{{element}}" alt="">
-             </div>
-          </section>
-       </article>
-       <aside class="description">
-          <h4 class="color-title">CONTENT</h4>
-          <section>
-             <p class="subtitle">Base experience gained for defeating:</p>
-             <p>{{pokemon.baseExperience}}</p>
-          </section>
-          <section>
-             <p class="subtitle">Height</p>
-             <p>{{pokemon.height}}</p>
-          </section>
-          <section>
-             <p class="subtitle">Abilities</p>
-             <div>
-                <ul>
-                   <li *ngFor="let element of pokemon.abilities"> {{element | titlecase}}</li>
-                </ul>
-             </div>
-          </section>
-       </aside>
-    </section>
- </div>
- 
+   <section>
+      <article class="form-pokemon">
+         <h4 class="color-title">{{pokemon.name | uppercase}}</h4>
+         <section><img src="{{pokemon.image}}" alt=""></section>
+         <section>
+            <div class="pokemon-carousel">
+               <img *ngFor="let element of pokemon.forms" src="{{element}}" alt="">
+            </div>
+         </section>
+      </article>
+      <aside class="description">
+         <h4 class="color-title">CONTENT</h4>
+         <section>
+            <p class="subtitle description-text">Base experience gained for defeating:</p>
+            <p class="description-text">{{pokemon.baseExperience}}</p>
+         </section>
+         <section>
+            <p class="subtitle description-text">Height</p>
+            <p class="description-text">{{pokemon.height}}</p>
+         </section>
+         <section>
+            <p class="subtitle">Abilities</p>
+            <div>
+               <ul>
+                  <li class="description-text" *ngFor="let element of pokemon.abilities"> {{element | titlecase}}</li>
+               </ul>
+            </div>
+         </section>
+      </aside>
+   </section>
+</div>

@@ -1,4 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    h4 {
+        font-size: 1.5em;
+      }
+      ul {
+        list-style: none;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+      section {
+        flex: 1;
+        display: flex;
+      }
+      section>aside {
+        flex: 1;
+        padding: 20px;
+        background-color: #e1e1e1;
+      }
+      section>article {
+        flex: 3;
+        padding: 20px;
+        line-height: 2em;
+        text-align: justify;
+      }
+      section h4 {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 2px;
+        color: #fff;
+        box-shadow: 1px 1px 1px #ccc;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+      }
+      .color-title {
+        background: transparent linear-gradient(to right, #61aa01 0%, #61aa01 100%) repeat scroll 0% 0%;
+      }
+}
